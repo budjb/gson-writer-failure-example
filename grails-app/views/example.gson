@@ -1,0 +1,5 @@
+model {
+    com.budjb.MyDomain myDomain
+}
+
+json g.render(myDomain)
