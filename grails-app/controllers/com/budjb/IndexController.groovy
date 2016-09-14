@@ -14,6 +14,10 @@ class IndexController {
         Writable writable = template.make(myDomain: MyDomain.findByName('test'))
         writable.writeTo(writer)
 
+        // Uncommenting the line below fixes the issue. Looks like the writer
+        // needs to be explicitly flushed when there are no more writes expected.
+        //writer.flush()
+
         println outputStream.size()
 
         render new String(outputStream.toByteArray())
